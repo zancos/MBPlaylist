@@ -2,8 +2,10 @@
 // Created by fernando on 7/29/17.
 //
 
-#ifndef MBPLATLIST_SONGLIST_H
-#define MBPLATLIST_SONGLIST_H
+#pragma once
+
+//#ifndef MBPLATLIST_SONGLIST_H
+//#define MBPLATLIST_SONGLIST_H
 
 
 #include <vector>
@@ -13,8 +15,8 @@ class SongList
 {
     std::string directory;
     std::vector<Song> songList;
-
-    Song song;
+	
+	Song song;
 
 public:
     Song getIndexSong(int index) { return songList[index]; };
@@ -24,8 +26,8 @@ public:
     void pushSong(std::string songStr) { this->song.setSong(songStr); songList.push_back(song); };
     std::string getDirectory() { return directory; };
     void setDirectory(std::string directory) { this->directory = directory; };
-    size_t size() { return songList.size(); };
+    int size() { return songList.size(); };
 };
 
 
-#endif //MBPLATLIST_SONGLIST_H
+//#endif //MBPLATLIST_SONGLIST_H
