@@ -14,15 +14,17 @@ class SongList
     std::string directory;
     std::vector<Song> songList;
 
+    Song song;
+
 public:
     Song getIndexSong(int index) { return songList[index]; };
     std::vector<Song> getSongList() { return songList; };
     void setSongList(std::vector<Song> songList) { this->songList = songList; };
     void setIndexSong(int index, Song song) { songList[index] = song; };
-    void pushSong(Song song) { songList.push_back(song); };
+    void pushSong(std::string songStr) { this->song.setSong(songStr); songList.push_back(song); };
     std::string getDirectory() { return directory; };
     void setDirectory(std::string directory) { this->directory = directory; };
-    int size() { return songList.size(); };
+    size_t size() { return songList.size(); };
 };
 
 
