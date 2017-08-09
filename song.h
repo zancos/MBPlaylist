@@ -13,6 +13,6 @@ public:
 public:
     void setSong(std::string song) { this->songTittle = song; };
     std::string getSong() { return this->songTittle; };
-    int length() { return songTittle.length() ; };
+    size_t length() { return songTittle.length() ; };
 
 };

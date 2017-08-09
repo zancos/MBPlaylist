@@ -26,7 +26,7 @@ public:
     void pushSong(std::string songStr) { this->song.setSong(songStr); songList.push_back(song); };
     std::string getDirectory() { return directory; };
     void setDirectory(std::string directory) { this->directory = directory; };
-    int size() { return songList.size(); };
+    size_t size() { return songList.size(); };
 };
 
 

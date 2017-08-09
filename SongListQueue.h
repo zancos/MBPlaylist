@@ -13,13 +13,15 @@ class SongListQueue
     std::string directory;
     std::list<Song> songList;
 
+    Song song;
+
 public:
     SongListQueue() { };
     virtual ~SongListQueue() { };
 
     const std::string getDirectory() const { return directory; };
-    std::string setDirectory(std::string dir) { directory = dir; };
+    void setDirectory(std::string dir) { directory = dir; };
 
-    void save();
-    void insert(Song song) {songList.push_front(song); };
+    void save(const std::string fullPath);
+    void insert(std::string songStr) { this->song.setSong(songStr); songList.push_front(song); };
 };
