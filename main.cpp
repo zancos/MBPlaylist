@@ -16,15 +16,17 @@ using namespace std;
 int main()
 {
 
-    SongListQueue canciones;
+    // Insert location of file
 
-    canciones.insert(CANCION1);
-    canciones.insert(CANCION2);
-    canciones.insert(CANCION3);
-    canciones.setDirectory("C:\\Users\\Fernando\\Music\\MusicBee\\");
+    SongListQueue songList;
 
+    songList.setDirectory("C:\\Users\\Fernando\\Music\\MusicBee\\");
 
-    canciones.save("test.mbp");
+    songList.insert(CANCION1);
+    songList.insert(CANCION2);
+    songList.insert(CANCION3);
+
+    songList.save("test.mbp");
 
 
     return 0;

@@ -20,7 +20,7 @@ public:
     virtual ~SongListQueue() { };
 
     const std::string getDirectory() const { return directory; };
-    void setDirectory(std::string dir) { directory = dir; };
+    void setDirectory(std::string d) { directory = d; };
 
     void save(const std::string fullPath);
     void insert(std::string songStr) { this->song.setSong(songStr); songList.push_front(song); };
