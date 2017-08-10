@@ -5,7 +5,9 @@
 
 #include <iostream>
 #include <list>
+#include <cstdint>
 
+#include "globals.h"
 #include "song.h"
 
 class SongListQueue
@@ -24,4 +26,6 @@ public:
 
     void save(const std::string fullPath);
     void insert(std::string songStr) { this->song.setSong(songStr); songList.push_front(song); };
+
+    template<class TYPE> void bindValue(std::ofstream & file, TYPE value);
 };
