@@ -3,7 +3,6 @@
 //
 
 #include <fstream>
-#include <cstdint>
 
 #include "SongListQueue.h"
 
@@ -24,6 +23,7 @@ void SongListQueue::save(const std::string fullPath)
   bindValue(f, static_cast<uint32_t>(0xFFFFFFFF));                                            // end char 0xFFFFFFFF
   bindValue(f, static_cast<uint32_t>(songList.size()));                                       // number of songs in the list
 
+  songList.reverse();
   for (Song s : songList)                                                                     // Song list
   {
     bindValue(f, static_cast<uint8_t>(s.length()));                                           // song char size
