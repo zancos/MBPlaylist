@@ -8,11 +8,12 @@
 class Song
 {
 public:
-    std::string songTittle;
+    const std::string songPath;
 
 public:
-    void setSong(std::string song) { this->songTittle = song; };
-    std::string getSong() { return this->songTittle; };
-    size_t length() { return songTittle.length() ; };
+  Song(const std::string songPath) : songPath(songPath) {};
+  virtual ~Song() {};
 
+    std::string getSongPath() const { return this->songPath; };
+    size_t length() const { return songPath.length() ; };
 };
