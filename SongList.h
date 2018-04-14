@@ -14,32 +14,39 @@
 
 class SongList
 {
+  using songList_t = std::list<Song>;
+  using iterator = songList_t::iterator;
+  using const_iterator = songList_t::const_iterator;
+
   int version;
 
   std::string directory;
-  std::list<Song> songList;
+  songList_t songList;
 
   int songCount;
 
 public:
-  SongList() { };
+  SongList() : songCount(0) { };
   virtual ~SongList() { };
 
-  const std::string getDirectory() const { return directory; };
+  iterator begin() { return songList.begin(); }
+  iterator end() { return songList.end(); }
+  const_iterator begin() const { return songList.begin(); }
+  const_iterator end() const { return songList.end(); }
+  const_iterator cbegin() const { return songList.cbegin(); }
+  const_iterator cend() const { return songList.cend(); }
+
+
+  std::string getDirectory() const { return directory; };
   void setDirectory(std::string d) { directory = d; };
+  int getVersion() const { return version; }
+  void setVersion(const int v) { version = v; }
+  int getSongCount() const { return songCount; }
+  void setSongCount(int sCount) { songCount = sCount; }
 
-  void load(std::string fullPath);
-  void save(const std::string fullPath);
-  void insert(Song song) { songList.push_front(song); }
-  void insert(std::string songPath) { songList.push_back(Song(songPath)); }
+  // TODO: to be deleted
+  std::list<Song> getSongListVector() const { return songList; }
 
-private:
-  template<class TYPE>
-  void bindValue(std::ofstream & file, TYPE value);
-  char * readValue(std::ifstream & file,/* int begin,*/ int size);
-  std::string readTextValue(std::ifstream & file, size_t size);
-
-  uint8_t char2uint8_t(char * value);
-  uint16_t char2uint16_t(char * value);
-  uint32_t char2uint32_t(char * value);
+  void insert(Song song) { songList.push_front(song); songCount++; }
+  void insert(std::string songPath) { songList.push_back(Song(songPath)); songCount++; }
 };

@@ -7,7 +7,6 @@
 
 class Song
 {
-public:
     const std::string songPath;
 
 public:
@@ -15,5 +14,5 @@ public:
   virtual ~Song() {};
 
     std::string getSongPath() const { return this->songPath; };
-    size_t length() const { return songPath.length() ; };
+    size_t pathLength() const { return songPath.length() ; };
 };
